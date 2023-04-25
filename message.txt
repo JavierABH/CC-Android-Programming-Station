@@ -1,0 +1,246 @@
+********** ST-LINK **********
+STVP_CmdLine version 1.6
+
+Verbose ON
+Log activity OFF
+Display Progress OFF
+Message box warning if protect option byte ON
+Loop mode OFF
+Erase device OFF
+Blank check device OFF
+Verify device ON
+
+Configuration:
+BoardName=ST-LINK ST-LINK_ID=0 Device=STM8AF528 Port=USB ProgMode=SWIM
+
+>>> Filling PROGRAM MEMORY image in computer with Blank Value
+<<< Filling PROGRAM MEMORY image in computer succeeds
+
+>>> Loading file C:\Club Car Programming\firmware\bootloader\stm8bootloader.s19 in PROGRAM MEMORY image in computer
+<<< Loading file succeeds
+
+Hit 'Esc' key to abort during communication.
+
+>>> Programming PROGRAM MEMORY
+<<< Programming PROGRAM MEMORY succeeds
+
+>>> Verifying PROGRAM MEMORY
+<<< Verifying PROGRAM MEMORY succeeds
+********** ST-LINK **********
+
+
+********** IMAGEN ANDROID **********
+Salida de uuu -lsusb:
+
+uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.4.165-0-ge10b026
+
+Your console don't support VT mode, fail back to verbose mode
+Connected Known USB Devices
+        Path     Chip    Pro     Vid     Pid     BcdVersion
+        ==================================================
+        2:1      MX8MM   SDP:    0x1FC9 0x0134   0x0101
+
+
+
+
+Ejecutando uuu_imx_android_flash.bat -f imx8mm -a -e -u ddr4 -d ddr4...      
+This script is validated with uuu 1.4.139 version, it is recommended to align with this version.
+dtbo is supported
+dual slot is supported
+dynamic partition is supported
+vendor_boot is supported
+generate lines to flash u-boot-imx8mm-ddr4.imx to the partition of bootloader0
+generate lines to flash partition-table.img to the partition of gpt
+generate lines to flash dtbo-imx8mm-ddr4.img to the partition of dtbo_a
+generate lines to flash vendor_boot.img to the partition of vendor_boot_a
+generate lines to flash boot.img to the partition of boot_a
+generate lines to flash vbmeta-imx8mm-ddr4.img to the partition of vbmeta_a
+generate lines to flash super.img to the partition of super
+uuu script generated, start to invoke uuu with the generated uuu script
+uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.4.165-0-ge10b026
+
+Your console don't support VT mode, fail back to verbose mode
+Build in config:
+        Pctl     Chip            Vid     Pid     BcdVersion
+        ==================================================
+        SDPS:    MX8QXP          0x1fc9  0x012f  [0x0002..0xffff]
+        SDPS:    MX8QM           0x1fc9  0x0129  [0x0002..0xffff]
+        SDPS:    MX8DXL          0x1fc9  0x0147
+        SDPS:    MX28            0x15a2  0x004f
+        SDPS:    MX815           0x1fc9  0x013e
+        SDPS:    MX865           0x1fc9  0x0146
+        SDPS:    MX8ULP          0x1fc9  0x014a
+        SDPS:    MX8ULP          0x1fc9  0x014b
+        SDP:     MX7D            0x15a2  0x0076
+        SDP:     MX6Q            0x15a2  0x0054
+        SDP:     MX6D            0x15a2  0x0061
+        SDP:     MX6SL           0x15a2  0x0063
+        SDP:     MX6SX           0x15a2  0x0071
+        SDP:     MX6UL           0x15a2  0x007d
+        SDP:     MX6ULL          0x15a2  0x0080
+        SDP:     MX6SLL          0x1fc9  0x0128
+        SDP:     MX7ULP          0x1fc9  0x0126
+        SDP:     MXRT106X        0x1fc9  0x0135
+        SDP:     MX8MM           0x1fc9  0x0134
+        SDP:     MX8MQ           0x1fc9  0x012b
+        SDPU:    SPL             0x0525  0xb4a4  [0x0000..0x04ff]
+        SDPV:    SPL1            0x0525  0xb4a4  [0x0500..0x9998]
+        SDPU:    SPL             0x0525  0xb4a4  [0x9999..0x9999]
+        SDPU:    SPL             0x3016  0x1001  [0x0000..0x04ff]
+        SDPV:    SPL1            0x3016  0x1001  [0x0500..0x9998]
+        FBK:                     0x066f  0x9afe
+        FBK:                     0x066f  0x9bff
+        FB:                      0x0525  0xa4a5
+        FB:                      0x18d1  0x0d02
+        FB:                      0x3016  0x0001
+Wait for Known USB Device Appear...
+New USB Device Attached at 2:1
+2:1>Start Cmd:SDP: boot -f u-boot-imx8mm-ddr4-evk-uuu.imx.link 
+
+17%
+34%
+51%
+68%
+85%
+100%
+0%
+6400%
+0%
+6400%2:1>Okay (0.345s)
+New USB Device Attached at 2:1
+2:1>Start Cmd:SDPV: delay 1000 
+2:1>Okay (1.015s)
+2:1>Start Cmd:SDPV: write -f u-boot-imx8mm-ddr4-evk-uuu.imx.link -skipspl 
+
+1%
+3%
+4%
+6%
+8%
+9%
+11%
+13%
+14%
+16%
+17%
+19%
+21%
+22%
+24%
+26%
+27%
+29%
+30%
+32%
+34%
+35%
+37%
+39%
+40%
+42%
+43%
+45%
+47%
+48%
+50%
+52%
+53%
+55%
+57%
+58%
+60%
+61%
+63%
+65%
+66%
+68%
+70%
+71%
+73%
+74%
+76%
+78%
+79%
+81%
+83%
+84%
+86%
+87%
+89%
+91%
+92%
+94%
+96%
+97%
+99%2:1>Okay (5.807s)
+2:1>Start Cmd:SDPV: jump 
+
+0%
+6400%2:1>Okay (0.292s)
+New USB Device Attached at 2:1
+2:1>Start Cmd:FB: ucmd setenv fastboot_dev mmc 
+2:1>Okay (0.13s)
+2:1>Start Cmd:FB: ucmd setenv mmcdev 2 
+2:1>Okay (0.041s)
+2:1>Start Cmd:FB: ucmd mmc dev 2 
+2:1>Okay (0.033s)
+2:1>Start Cmd:FB: ucmd mmc dev 2 0 
+2:1>Okay (0.033s)
+2:1>Start Cmd:FB: ucmd mmc erase 0x2000 0x8
+2:1>Okay (0.02s)
+2:1>Start Cmd:FB: ucmd mmc partconf 2 1 1 1
+2:1>Okay (0.004s)
+2:1>Start Cmd:FB[-t 600000]: flash bootloader0 u-boot-imx8mm-ddr4.imx.link
+0x190000002:1>Okay (0.252s)
+2:1>Start Cmd:FB[-t 600000]: flash gpt partition-table.img.link 
+0x190000002:1>Okay (0.129s)
+2:1>Start Cmd:FB[-t 600000]: flash dtbo_a dtbo-imx8mm-ddr4.img.link 
+0x190000002:1>Okay (0.263s)
+2:1>Start Cmd:FB[-t 600000]: flash vendor_boot_a vendor_boot.img.link 
+0x190000002:1>Okay (3.451s)
+2:1>Start Cmd:FB[-t 600000]: flash boot_a boot.img.link 
+0x190000002:1>Okay (3.48s)
+2:1>Start Cmd:FB[-t 600000]: flash vbmeta_a vbmeta-imx8mm-ddr4.img.link 
+0x190000002:1>Okay (0.054s)
+2:1>Start Cmd:FB[-t 600000]: flash super super.img.link
+0x19000000
+1%
+2%
+4%
+5%
+7%
+8%
+10%
+11%
+13%
+14%
+16%
+17%
+18%
+19%
+21%
+22%
+23%
+25%
+26%
+28%
+29%
+30%
+31%
+32%
+33%
+200%2:1>Okay (94.09s)
+2:1>Start Cmd:FB[-t 600000]: erase misc
+2:1>Okay (0.051s)
+2:1>Start Cmd:FB[-t 600000]: erase presistdata
+2:1>Okay (0.044s)
+2:1>Start Cmd:FB[-t 600000]: erase fbmisc
+2:1>Okay (0.044s)
+2:1>Start Cmd:FB[-t 600000]: erase metadata
+2:1>Okay (0.098s)
+2:1>Start Cmd:FB: set_active a
+2:1>Okay (0.015s)
+2:1>Start Cmd:FB[-t 600000]: erase userdata
+2:1>Okay (8.461s)
+2:1>Start Cmd:FB: done 
+2:1>Okay (0s)

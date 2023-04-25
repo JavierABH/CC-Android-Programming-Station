@@ -1,0 +1,71 @@
+* cdm con administrador *
+cd C:\Club Car Programming\firmware\adb\1.8.2
+uuu -lsusb
+*** ejemplo de respuesta correcta***
+
+Connected Known USB Devices
+        Path     Chip    Pro     Vid     Pid     BcdVersion
+        ==================================================
+        1:4      MX8MM   SDP:    0x1FC9 0x0134   0x0101
+*******************
+
+uuu_imx_android_flash.bat -f imx8mm -a -e -u ddr4 -d ddr4
+
+** ejemplo de respuesta correcta **
+C:\Club Car Programming\firmware\adb\1.8.2>uuu_imx_android_flash.bat -f imx8mm -a -e -u ddr4 -d ddr4
+This script is validated with uuu 1.4.139 version, it is recommended to align with this version.
+dtbo is supported
+dual slot is supported
+dynamic partition is supported
+vendor_boot is supported
+generate lines to flash u-boot-imx8mm-ddr4.imx to the partition of bootloader0
+generate lines to flash partition-table.img to the partition of gpt
+generate lines to flash dtbo-imx8mm-ddr4.img to the partition of dtbo_a
+generate lines to flash vendor_boot.img to the partition of vendor_boot_a
+generate lines to flash boot.img to the partition of boot_a
+generate lines to flash vbmeta-imx8mm-ddr4.img to the partition of vbmeta_a
+generate lines to flash super.img to the partition of super
+uuu script generated, start to invoke uuu with the generated uuu script
+uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.4.165-0-ge10b026
+
+Success 1    Failure 0
+
+
+2:1     20/20 [Done                                  ] FB: done
+
+
+
+cd ..
+**esperar aprox 40s***
+
+adb devices 
+
+*** tiene q salir algo asi 
+List of devices attached
+140ea209daba5ee2        device
+******
+
+adb root
+adb install -f C:\scrcpy\APK\GPS\GPS.apk
+adb install -f C:\scrcpy\APK\NFC\NFC.apk
+adb install -f C:\scrcpy\APK\V4APP\V4APP.apk
+
+
+adb shell
+su
+settings put system screen_brightness_mode 0
+cd vendor/firmware
+source flash_stm.sh
+settings put system screen_brightness_mode 1
+
+
+
+setprop persist.sys.start_mcu_flash 1 (falta validar)
+** si falla (letras rojas) presione enter y el comando anterior)
+** eliminado **
+cd ..
+cd ..
+setprop persist.audio_hw_select 0
+getprop persist.audio_hw_select 0
+
+** debe salir 0 ***
