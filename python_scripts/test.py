@@ -1,2 +1,3 @@
 serial = '47752390001REV DFNTD001XX'
 serialCut = 'FNTD001WA'
+prueba
