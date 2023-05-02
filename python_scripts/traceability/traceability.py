@@ -7,35 +7,47 @@ class Traceability:
         from WSConnector import Connector
         self.connector = Connector()
 
-        self.expected_part_number = ""
-        self.part_number = ""
-        self.station_name = ""
-        self.process_name = ""
+        self.expected_partNumber = ""
+        self.stationName = ""
+        self.processName = ""
         self.employee = ""
 
-    def set_general_pcb(self):
-        pass
+        self.serial = ""
+        self.partNumber = ""
+
+    def set_general_pcb(self, stationName, partNumber, processName):
+        self.stationName = stationName
+        self.expected_partNumber = partNumber
+        self.processName = processName
 
     def set_pcb_test(self, serial):
-        self.serial = serial
+        self.serial = serial     
 
     def _traceability_partNumber(self):
-        useless = ""
-        self.part_number, useless = self.connector.CIMP_PartNumberRef(self.serial, 2, useless)
-        return self.part_number
+        str_useless = ""
+        partNumber, str_useless = self.connector.CIMP_PartNumberRef(self.serial, 2, str_useless)
+        return partNumber
 
+    def _traceability_backCheck(self):
+        reply_backCheck = self.connector.BackCheck_Serial(self.serial, self.stationName)
+        return reply_backCheck
 
-    def _traceability_backcheck(self):
+    def _traceability_partNumberVirtual(self):
+        partNumberVirtual = self.connector.FindFinishedPartNumVirtual(self.serial)
+        return partNumberVirtual
+  
+    def _MacAddres_BySerial(self):
+        reply_mac = self.connector.Get_MacAddres_BySerial(self.serial, self.expected_partNumber, self.stationName)
+        return reply_mac
+
+    def _traceability_insertProcess(self):
         pass
 
-    def _traceability_insert_process(self):
+    def reply_partNumber(self):
         pass
 
-    def reply_part_number(self):
+    def reply_backCheck(self):
         pass
 
-    def reply_backcheck(self):
-        pass
-
-    def reply_insert_process(self):
+    def reply_insertProcess(self):
         pass
